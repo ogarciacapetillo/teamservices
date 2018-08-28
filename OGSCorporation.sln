@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E52B2B80-A5F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{047B7DA1-B05A-4023-BEDF-2281ED02CA59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGSCorporation.TeamService", "OGSCorporation.TeamService\OGSCorporation.TeamService.csproj", "{E8D64129-1674-45BD-936F-370DF5E6CC29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OGSCorporation.TeamService", "OGSCorporation.TeamService\OGSCorporation.TeamService.csproj", "{E8D64129-1674-45BD-936F-370DF5E6CC29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGSCorporation.TeamService.Tests", "OGSCorporation.TeamService.Tests\OGSCorporation.TeamService.Tests.csproj", "{ED95BFEE-FD84-4AF5-A613-A4A366D2C8D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OGSCorporation.TeamService.Tests", "OGSCorporation.TeamService.Tests\OGSCorporation.TeamService.Tests.csproj", "{ED95BFEE-FD84-4AF5-A613-A4A366D2C8D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{1245CCE5-573D-4E20-9D1F-110F6D0CE252}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

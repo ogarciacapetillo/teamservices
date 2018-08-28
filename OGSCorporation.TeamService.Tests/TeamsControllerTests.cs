@@ -10,6 +10,9 @@ namespace OGSCorporation.TeamService.Tests
 {
     public class TeamsControllerTest
     {	    
+        /// <summary>
+        /// This test return the number of teams
+        /// </summary>
         [Fact]
         public void QueryTeamListReturnsCorrectTeams()
         {
@@ -21,6 +24,9 @@ namespace OGSCorporation.TeamService.Tests
             Assert.Equal(teams[1].Name, "two");            
         }
 
+        /// <summary>
+        /// Retrieve a Team using the Guid Id
+        /// </summary>
         [Fact]
         public void GetTeamRetrievesTeam() 
         {
@@ -45,22 +51,26 @@ namespace OGSCorporation.TeamService.Tests
             var result = controller.GetTeam(id);
             Assert.True(result is NotFoundResult);                                
         }
-
+        /// <summary>
+        /// Create Team and add to the teams list
+        /// </summary>
         [Fact]
         public void CreateTeamAddsTeamToList() 
         {
+            //Arrange:
             TeamsController controller = new TeamsController(new TestMemoryTeamRepository());
             var teams = (IEnumerable<Team>)(controller.GetAllTeams() as ObjectResult).Value;
-            List<Team> original = new List<Team>(teams);
-            
+            List<Team> original = new List<Team>(teams);            
             Team t = new Team("sample");
-            var result = controller.CreateTeam(t);
-            //TODO: also assert that the destination URL of the new team reflects the team's GUID
-            Assert.Equal((result as ObjectResult).StatusCode, 201);
 
+            //Act:
+            var result = controller.CreateTeam(t);            
+            Assert.Equal(201, (result as ObjectResult).StatusCode);
             var actionResult = controller.GetAllTeams() as ObjectResult;            
             var newTeamsRaw = (IEnumerable<Team>)(controller.GetAllTeams() as ObjectResult).Value;
             List<Team> newTeams = new List<Team>(newTeamsRaw);
+
+            //Assert:
             Assert.Equal(newTeams.Count, original.Count+1);
             var sampleTeam = newTeams.FirstOrDefault( target => target.Name == "sample");
             Assert.NotNull(sampleTeam);            
